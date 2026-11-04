@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f3e7">
+  <title>Jardim da Isabelly · Flor &amp; Pixel</title>
+  <meta name="description" content="Um presente jogável para Isabelly. Colha flores, pinte um cartão e encontre um bilhete entre os pixels.">
+  <link rel="icon" href="assets/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="capitulos.css">
+  <link rel="stylesheet" href="bilhetes.css">
+  <script defer src="som.js"></script>
+  <script defer src="capitulos.js?v=20261104-escudo"></script>
+  <script defer src="jogo.js"></script>
+  <script defer src="bilhetes.js"></script>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="flor" viewBox="0 0 32 32" shape-rendering="crispEdges">
+    <path fill="#3d2f3d" d="M13 0h1v1h-1zM16 0h3v1h-3zM11 1h2v1h-2zM14 1h2v1h-2zM19 1h1v1h-1zM10 2h1v1h-1zM20 2h2v1h-2zM23 2h1v1h-1zM9 3h2v1h-2zM22 3h1v1h-1zM24 3h1v1h-1zM8 4h1v1h-1zM24 4h1v1h-1zM7 5h1v1h-1zM23 5h3v1h-3zM7 6h1v1h-1zM26 6h1v1h-1zM6 7h2v1h-2zM25 7h1v1h-1zM5 8h1v1h-1zM26 8h1v1h-1zM6 9h1v1h-1zM25 9h1v1h-1zM5 10h1v1h-1zM25 10h1v1h-1zM6 11h1v1h-1zM26 11h1v1h-1zM6 12h1v1h-1zM25 12h1v1h-1zM5 13h1v1h-1zM26 13h1v1h-1zM6 14h1v1h-1zM24 14h2v1h-2zM6 15h1v1h-1zM24 15h1v1h-1zM7 16h2v1h-2zM25 16h1v1h-1zM8 17h1v1h-1zM23 17h2v1h-2zM7 18h1v1h-1zM9 18h1v1h-1zM25 18h1v1h-1zM5 19h5v1h-5zM11 19h2v1h-2zM24 19h1v1h-1zM4 20h1v1h-1zM8 20h5v1h-5zM14 20h1v1h-1zM24 20h1v1h-1zM4 21h1v1h-1zM12 21h3v1h-3zM23 21h1v1h-1zM5 22h1v1h-1zM13 22h1v1h-1zM22 22h1v1h-1zM5 23h1v1h-1zM19 23h3v1h-3zM6 24h1v1h-1zM16 24h3v1h-3zM7 25h1v1h-1zM16 25h1v1h-1zM8 26h5v1h-5zM16 26h1v1h-1zM12 27h1v1h-1zM15 27h1v1h-1zM12 28h1v1h-1zM15 28h1v1h-1zM12 29h1v1h-1zM15 29h1v1h-1zM13 30h2v1h-2z"/>
+    <path fill="#ffd368" d="M13 1h1v1h-1zM18 1h1v1h-1zM13 2h2v1h-2zM17 2h3v1h-3zM14 3h3v1h-3zM18 3h2v1h-2zM23 3h1v1h-1zM9 4h3v1h-3zM15 4h1v1h-1zM18 4h6v1h-6zM9 5h1v1h-1zM11 5h2v1h-2zM15 5h1v1h-1zM18 5h2v1h-2zM22 5h1v1h-1zM9 6h1v1h-1zM12 6h1v1h-1zM15 6h1v1h-1zM18 6h1v1h-1zM21 6h2v1h-2zM8 7h3v1h-3zM20 7h2v1h-2zM23 7h1v1h-1zM6 8h6v1h-6zM24 8h2v1h-2zM7 9h1v1h-1zM23 9h2v1h-2zM8 10h1v1h-1zM21 10h3v1h-3zM8 11h3v1h-3zM21 11h1v1h-1zM23 11h1v1h-1zM7 12h2v1h-2zM6 13h2v1h-2zM21 13h5v1h-5zM8 14h1v1h-1zM10 14h2v1h-2zM21 14h3v1h-3zM9 15h2v1h-2zM19 15h1v1h-1zM22 15h1v1h-1zM9 16h2v1h-2zM12 16h2v1h-2zM16 16h1v1h-1zM19 16h3v1h-3zM9 17h1v1h-1zM11 17h3v1h-3zM16 17h1v1h-1zM19 17h4v1h-4zM8 18h1v1h-1zM12 18h2v1h-2zM15 18h3v1h-3zM19 18h1v1h-1zM23 18h1v1h-1zM13 19h1v1h-1zM17 19h2v1h-2zM13 20h1v1h-1zM18 20h1v1h-1z"/>
+    <path fill="#ad6d3e" d="M16 1h2v1h-2zM11 2h2v1h-2zM15 2h2v1h-2zM11 3h2v1h-2zM20 3h2v1h-2zM12 4h1v1h-1zM8 5h1v1h-1zM8 6h1v1h-1zM23 6h3v1h-3zM13 7h2v1h-2zM18 7h1v1h-1zM22 7h1v1h-1zM24 7h1v1h-1zM12 8h1v1h-1zM19 8h1v1h-1zM12 9h1v1h-1zM6 10h2v1h-2zM11 10h1v1h-1zM14 10h1v1h-1zM20 10h1v1h-1zM24 10h1v1h-1zM7 11h1v1h-1zM11 11h1v1h-1zM20 11h1v1h-1zM24 11h2v1h-2zM11 12h2v1h-2zM16 12h1v1h-1zM20 12h1v1h-1zM12 13h1v1h-1zM19 13h1v1h-1zM7 14h1v1h-1zM9 14h1v1h-1zM12 14h2v1h-2zM19 14h1v1h-1zM7 15h2v1h-2zM14 15h4v1h-4zM23 15h1v1h-1zM23 16h2v1h-2zM10 18h2v1h-2zM20 18h1v1h-1zM10 19h1v1h-1zM15 19h2v1h-2zM19 19h2v1h-2zM15 20h1v1h-1z"/>
+    <path fill="#ffe897" d="M13 3h1v1h-1zM17 3h1v1h-1zM13 4h2v1h-2zM16 4h2v1h-2zM10 5h1v1h-1zM13 5h2v1h-2zM16 5h2v1h-2zM20 5h2v1h-2zM10 6h2v1h-2zM13 6h2v1h-2zM16 6h2v1h-2zM19 6h2v1h-2zM11 7h2v1h-2zM19 7h1v1h-1zM20 8h4v1h-4zM8 9h4v1h-4zM20 9h3v1h-3zM9 10h2v1h-2zM22 11h1v1h-1zM9 12h2v1h-2zM21 12h4v1h-4zM8 13h4v1h-4zM20 13h1v1h-1zM20 14h1v1h-1zM11 15h3v1h-3zM18 15h1v1h-1zM20 15h2v1h-2zM11 16h1v1h-1zM14 16h2v1h-2zM17 16h2v1h-2zM22 16h1v1h-1zM10 17h1v1h-1zM14 17h2v1h-2zM17 17h2v1h-2zM14 18h1v1h-1zM18 18h1v1h-1zM14 19h1v1h-1z"/>
+    <path fill="#7c503e" d="M15 7h3v1h-3zM13 8h2v1h-2zM17 8h2v1h-2zM19 9h1v1h-1zM12 10h1v1h-1zM19 10h1v1h-1zM12 11h1v1h-1zM19 11h1v1h-1zM19 12h1v1h-1zM14 13h1v1h-1zM14 14h1v1h-1zM17 14h2v1h-2z"/>
+    <path fill="#553c37" d="M15 8h2v1h-2zM13 9h6v1h-6zM13 10h1v1h-1zM15 10h2v1h-2zM18 10h1v1h-1zM13 11h6v1h-6zM13 12h3v1h-3zM17 12h2v1h-2zM13 13h1v1h-1zM15 13h4v1h-4zM15 14h2v1h-2z"/>
+    <path fill="#d89541" d="M17 10h1v1h-1z"/>
+    <path fill="#385e4d" d="M21 18h2v1h-2zM24 18h1v1h-1zM21 19h1v1h-1zM23 19h1v1h-1zM5 20h3v1h-3zM16 20h2v1h-2zM22 20h2v1h-2zM5 21h1v1h-1zM11 21h1v1h-1zM16 21h2v1h-2zM20 21h3v1h-3zM6 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM16 22h6v1h-6zM6 23h2v1h-2zM13 23h2v1h-2zM16 23h3v1h-3zM7 24h4v1h-4zM13 24h3v1h-3zM8 25h6v1h-6zM15 25h1v1h-1zM13 26h3v1h-3zM13 27h2v1h-2zM13 28h2v1h-2zM13 29h2v1h-2z"/>
+    <path fill="#9eaf75" d="M22 19h1v1h-1zM19 20h3v1h-3zM15 21h1v1h-1zM18 21h2v1h-2zM8 22h2v1h-2zM15 22h1v1h-1zM15 23h1v1h-1zM14 25h1v1h-1z"/>
+    <path fill="#678457" d="M6 21h5v1h-5zM7 22h1v1h-1zM10 22h2v1h-2zM8 23h5v1h-5zM11 24h2v1h-2z"/>
+  </symbol>
+  <symbol id="paleta" viewBox="0 0 32 32" shape-rendering="crispEdges">
+    <path fill="#3d2f3d" d="M28 2h1v1h-1zM27 3h3v1h-3zM26 4h2v1h-2zM29 4h2v1h-2zM25 5h2v1h-2zM28 5h2v1h-2zM24 6h2v1h-2zM28 6h2v1h-2zM14 7h5v1h-5zM24 7h1v1h-1zM28 7h2v1h-2zM9 8h5v1h-5zM19 8h2v1h-2zM23 8h1v1h-1zM27 8h2v1h-2zM7 9h2v1h-2zM21 9h3v1h-3zM26 9h2v1h-2zM6 10h1v1h-1zM22 10h1v1h-1zM25 10h2v1h-2zM5 11h1v1h-1zM24 11h2v1h-2zM4 12h1v1h-1zM21 12h1v1h-1zM24 12h2v1h-2zM3 13h1v1h-1zM20 13h1v1h-1zM23 13h1v1h-1zM26 13h1v1h-1zM3 14h1v1h-1zM17 14h1v1h-1zM22 14h1v1h-1zM26 14h1v1h-1zM2 15h1v1h-1zM16 15h2v1h-2zM21 15h1v1h-1zM26 15h1v1h-1zM2 16h1v1h-1zM15 16h2v1h-2zM18 16h1v1h-1zM26 16h1v1h-1zM2 17h1v1h-1zM15 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM26 17h1v1h-1zM2 18h1v1h-1zM14 18h2v1h-2zM19 18h2v1h-2zM23 18h3v1h-3zM2 19h1v1h-1zM14 19h1v1h-1zM18 19h2v1h-2zM21 19h2v1h-2zM2 20h1v1h-1zM14 20h1v1h-1zM16 20h3v1h-3zM20 20h1v1h-1zM2 21h1v1h-1zM14 21h1v1h-1zM20 21h1v1h-1zM2 22h1v1h-1zM21 22h1v1h-1zM3 23h1v1h-1zM22 23h1v1h-1zM4 24h1v1h-1zM21 24h1v1h-1zM5 25h1v1h-1zM21 25h1v1h-1zM6 26h1v1h-1zM20 26h1v1h-1zM7 27h3v1h-3zM19 27h1v1h-1zM10 28h9v1h-9z"/>
+    <path fill="#ad6d3e" d="M28 4h1v1h-1zM26 6h2v1h-2zM25 7h3v1h-3zM24 8h1v1h-1zM26 8h1v1h-1zM25 9h1v1h-1zM23 10h2v1h-2zM22 11h1v1h-1zM23 12h1v1h-1zM22 13h1v1h-1zM20 14h2v1h-2z"/>
+    <path fill="#ebc161" d="M27 5h1v1h-1zM25 8h1v1h-1zM10 9h9v1h-9zM24 9h1v1h-1zM8 10h3v1h-3zM18 10h4v1h-4zM7 11h1v1h-1zM10 11h4v1h-4zM16 11h6v1h-6zM23 11h1v1h-1zM6 12h1v1h-1zM9 12h4v1h-4zM17 12h4v1h-4zM22 12h1v1h-1zM5 13h1v1h-1zM11 13h2v1h-2zM17 13h3v1h-3zM21 13h1v1h-1zM24 13h1v1h-1zM4 14h1v1h-1zM11 14h3v1h-3zM16 14h1v1h-1zM23 14h2v1h-2zM3 15h1v1h-1zM6 15h1v1h-1zM11 15h5v1h-5zM22 15h3v1h-3zM3 16h1v1h-1zM6 16h1v1h-1zM11 16h4v1h-4zM22 16h3v1h-3zM3 17h12v1h-12zM22 17h1v1h-1zM3 18h11v1h-11zM3 19h3v1h-3zM9 19h5v1h-5zM3 20h2v1h-2zM10 20h4v1h-4zM3 21h3v1h-3zM9 21h5v1h-5zM16 21h3v1h-3zM4 22h7v1h-7zM13 22h6v1h-6zM5 23h5v1h-5zM14 23h6v1h-6zM6 24h4v1h-4zM14 24h6v1h-6zM8 25h3v1h-3zM13 25h6v1h-6zM12 26h5v1h-5z"/>
+    <path fill="#7c503e" d="M14 8h5v1h-5zM9 9h1v1h-1zM19 9h2v1h-2zM7 10h1v1h-1zM6 11h1v1h-1zM5 12h1v1h-1zM4 13h1v1h-1zM25 13h1v1h-1zM25 14h1v1h-1zM25 15h1v1h-1zM17 16h1v1h-1zM25 16h1v1h-1zM16 17h3v1h-3zM23 17h3v1h-3zM16 18h3v1h-3zM21 18h2v1h-2zM15 19h1v1h-1zM17 19h1v1h-1zM20 19h1v1h-1zM15 20h1v1h-1zM19 20h1v1h-1zM19 21h1v1h-1zM3 22h1v1h-1zM19 22h2v1h-2zM4 23h1v1h-1zM20 23h2v1h-2zM5 24h1v1h-1zM20 24h1v1h-1zM6 25h2v1h-2zM19 25h2v1h-2zM7 26h5v1h-5zM17 26h3v1h-3zM10 27h9v1h-9z"/>
+    <path fill="#ffe897" d="M11 10h7v1h-7zM8 11h2v1h-2zM7 12h2v1h-2zM6 13h1v1h-1zM5 14h2v1h-2zM4 15h2v1h-2zM4 16h2v1h-2z"/>
+    <path fill="#385e4d" d="M14 11h2v1h-2zM13 12h1v1h-1zM15 12h2v1h-2zM13 13h4v1h-4zM14 14h2v1h-2z"/>
+    <path fill="#9eaf75" d="M14 12h1v1h-1z"/>
+    <path fill="#b45d67" d="M7 13h4v1h-4zM7 14h1v1h-1zM9 14h2v1h-2zM7 15h4v1h-4zM7 16h4v1h-4zM16 19h1v1h-1zM15 21h1v1h-1z"/>
+    <path fill="#e5a4a4" d="M8 14h1v1h-1zM11 23h1v1h-1z"/>
+    <path fill="#9cb8b1" d="M18 14h2v1h-2zM19 15h2v1h-2zM20 16h2v1h-2zM20 17h1v1h-1zM7 19h1v1h-1z"/>
+    <path fill="#fff0cd" d="M18 15h1v1h-1zM19 16h1v1h-1z"/>
+    <path fill="#72968d" d="M6 19h1v1h-1zM8 19h1v1h-1zM5 20h5v1h-5zM6 21h3v1h-3z"/>
+    <path fill="#c9808b" d="M11 22h2v1h-2zM10 23h1v1h-1zM12 23h2v1h-2zM10 24h4v1h-4zM11 25h2v1h-2z"/>
+  </symbol>
+  <symbol id="claquete" viewBox="0 0 32 32" shape-rendering="crispEdges">
+    <path fill="#3d2f3d" d="M24 2h2v1h-2zM21 3h6v1h-6zM18 4h6v1h-6zM26 4h2v1h-2zM15 5h6v1h-6zM26 5h2v1h-2zM12 6h6v1h-6zM27 6h2v1h-2zM9 7h5v1h-5zM25 7h3v1h-3zM6 8h5v1h-5zM23 8h3v1h-3zM3 9h5v1h-5zM21 9h2v1h-2zM2 10h3v1h-3zM16 10h5v1h-5zM1 11h2v1h-2zM14 11h3v1h-3zM2 12h1v1h-1zM9 12h5v1h-5zM2 13h2v1h-2zM7 13h21v1h-21zM2 14h3v1h-3zM9 14h3v1h-3zM16 14h3v1h-3zM23 14h3v1h-3zM28 14h1v1h-1zM2 15h2v1h-2zM8 15h3v1h-3zM15 15h3v1h-3zM22 15h3v1h-3zM28 15h1v1h-1zM2 16h1v1h-1zM7 16h3v1h-3zM14 16h3v1h-3zM21 16h3v1h-3zM28 16h1v1h-1zM2 17h27v1h-27zM2 18h2v1h-2zM27 18h2v1h-2zM2 19h2v1h-2zM5 19h21v1h-21zM27 19h2v1h-2zM2 20h2v1h-2zM5 20h1v1h-1zM20 20h6v1h-6zM27 20h2v1h-2zM2 21h2v1h-2zM5 21h21v1h-21zM27 21h2v1h-2zM2 22h2v1h-2zM5 22h1v1h-1zM7 22h1v1h-1zM14 22h2v1h-2zM17 22h1v1h-1zM24 22h2v1h-2zM27 22h2v1h-2zM2 23h2v1h-2zM5 23h1v1h-1zM7 23h9v1h-9zM17 23h9v1h-9zM27 23h2v1h-2zM2 24h2v1h-2zM5 24h21v1h-21zM27 24h2v1h-2zM2 25h2v1h-2zM27 25h2v1h-2zM2 26h27v1h-27zM2 27h26v1h-26zM3 28h24v1h-24z"/>
+    <path fill="#555463" d="M24 4h2v1h-2zM21 5h2v1h-2zM25 5h1v1h-1zM18 6h3v1h-3zM24 6h3v1h-3zM14 7h2v1h-2zM18 7h2v1h-2zM24 7h1v1h-1zM11 8h3v1h-3zM17 8h3v1h-3zM8 9h1v1h-1zM11 9h2v1h-2zM17 9h2v1h-2zM5 10h2v1h-2zM10 10h3v1h-3zM3 11h3v1h-3zM10 11h2v1h-2zM3 12h1v1h-1zM4 18h23v1h-23zM4 19h1v1h-1zM26 19h1v1h-1zM4 20h1v1h-1zM26 20h1v1h-1zM4 21h1v1h-1zM26 21h1v1h-1zM4 22h1v1h-1zM26 22h1v1h-1zM4 23h1v1h-1zM26 23h1v1h-1zM4 24h1v1h-1zM26 24h1v1h-1zM4 25h23v1h-23z"/>
+    <path fill="#fff0cd" d="M23 5h2v1h-2zM21 6h3v1h-3zM16 7h2v1h-2zM20 7h4v1h-4zM14 8h3v1h-3zM20 8h3v1h-3zM9 9h2v1h-2zM13 9h4v1h-4zM19 9h2v1h-2zM7 10h3v1h-3zM13 10h3v1h-3zM6 11h4v1h-4zM12 11h2v1h-2zM6 12h3v1h-3zM6 13h1v1h-1zM5 14h4v1h-4zM12 14h4v1h-4zM19 14h4v1h-4zM26 14h2v1h-2zM4 15h4v1h-4zM11 15h4v1h-4zM18 15h4v1h-4zM25 15h3v1h-3zM3 16h4v1h-4zM10 16h4v1h-4zM17 16h4v1h-4zM24 16h4v1h-4zM6 20h14v1h-14z"/>
+    <path fill="#e5a4a4" d="M4 12h1v1h-1z"/>
+    <path fill="#c9808b" d="M5 12h1v1h-1zM4 13h2v1h-2z"/>
+    <path fill="#9cb8b1" d="M6 22h1v1h-1zM8 22h6v1h-6zM16 22h1v1h-1zM18 22h6v1h-6zM6 23h1v1h-1zM16 23h1v1h-1z"/>
+  </symbol>
+  <symbol id="lirio" viewBox="0 0 32 32" shape-rendering="crispEdges">
+    <path fill="#3d2f3d" d="M22 1h1v1h-1zM21 2h1v1h-1zM23 2h1v1h-1zM11 3h1v1h-1zM20 3h1v1h-1zM23 3h1v1h-1zM10 4h1v1h-1zM12 4h1v1h-1zM19 4h1v1h-1zM23 4h1v1h-1zM10 5h1v1h-1zM13 5h1v1h-1zM18 5h1v1h-1zM23 5h1v1h-1zM11 6h1v1h-1zM14 6h1v1h-1zM18 6h1v1h-1zM23 6h1v1h-1zM10 7h2v1h-2zM15 7h2v1h-2zM18 7h1v1h-1zM23 7h1v1h-1zM27 7h2v1h-2zM8 8h2v1h-2zM11 8h1v1h-1zM17 8h1v1h-1zM22 8h1v1h-1zM24 8h3v1h-3zM29 8h1v1h-1zM5 9h3v1h-3zM11 9h2v1h-2zM22 9h2v1h-2zM28 9h1v1h-1zM4 10h1v1h-1zM21 10h2v1h-2zM28 10h1v1h-1zM3 11h1v1h-1zM21 11h1v1h-1zM28 11h1v1h-1zM2 12h1v1h-1zM20 12h1v1h-1zM27 12h1v1h-1zM3 13h2v1h-2zM26 13h1v1h-1zM5 14h2v1h-2zM25 14h1v1h-1zM7 15h1v1h-1zM24 15h1v1h-1zM8 16h1v1h-1zM25 16h1v1h-1zM9 17h2v1h-2zM23 17h2v1h-2zM4 18h1v1h-1zM11 18h1v1h-1zM21 18h2v1h-2zM3 19h1v1h-1zM5 19h3v1h-3zM12 19h2v1h-2zM20 19h1v1h-1zM4 20h1v1h-1zM8 20h3v1h-3zM14 20h1v1h-1zM19 20h1v1h-1zM22 20h3v1h-3zM4 21h1v1h-1zM11 21h1v1h-1zM15 21h1v1h-1zM18 21h4v1h-4zM25 21h1v1h-1zM5 22h1v1h-1zM12 22h2v1h-2zM15 22h1v1h-1zM18 22h1v1h-1zM24 22h1v1h-1zM6 23h1v1h-1zM14 23h1v1h-1zM23 23h1v1h-1zM7 24h3v1h-3zM22 24h1v1h-1zM10 25h2v1h-2zM20 25h2v1h-2zM12 26h1v1h-1zM14 26h1v1h-1zM17 26h3v1h-3zM13 27h2v1h-2zM17 27h1v1h-1zM13 28h1v1h-1zM16 28h1v1h-1zM13 29h1v1h-1zM16 29h1v1h-1zM14 30h2v1h-2z"/>
+    <path fill="#c9808b" d="M22 2h1v1h-1zM21 3h2v1h-2zM11 4h1v1h-1zM20 4h2v1h-2zM11 5h2v1h-2zM19 5h2v1h-2zM22 5h1v1h-1zM19 6h2v1h-2zM22 6h1v1h-1zM12 7h1v1h-1zM14 7h1v1h-1zM19 7h1v1h-1zM22 7h1v1h-1zM12 8h1v1h-1zM15 8h1v1h-1zM18 8h2v1h-2zM27 8h2v1h-2zM16 9h1v1h-1zM18 9h1v1h-1zM21 9h1v1h-1zM24 9h3v1h-3zM13 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM23 10h2v1h-2zM27 10h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h2v1h-2zM27 11h1v1h-1zM21 12h2v1h-2zM26 12h1v1h-1zM20 13h2v1h-2zM25 13h1v1h-1zM19 14h3v1h-3zM24 14h1v1h-1zM19 15h2v1h-2zM18 16h2v1h-2zM15 17h4v1h-4zM16 18h2v1h-2z"/>
+    <path fill="#e5a4a4" d="M22 4h1v1h-1zM21 5h1v1h-1zM21 6h1v1h-1zM20 7h2v1h-2zM20 8h2v1h-2zM8 9h1v1h-1zM19 9h2v1h-2zM5 10h2v1h-2zM10 10h1v1h-1zM12 10h1v1h-1zM19 10h2v1h-2zM4 11h1v1h-1zM13 11h2v1h-2zM19 11h1v1h-1zM3 12h3v1h-3zM15 12h1v1h-1zM18 12h2v1h-2zM5 13h4v1h-4zM18 13h2v1h-2zM7 14h5v1h-5zM17 14h2v1h-2zM8 15h6v1h-6zM18 15h1v1h-1zM9 16h1v1h-1zM15 16h3v1h-3z"/>
+    <path fill="#fff0cd" d="M12 6h1v1h-1zM13 8h1v1h-1zM13 9h1v1h-1zM15 9h1v1h-1zM27 9h1v1h-1zM7 10h3v1h-3zM14 10h1v1h-1zM25 10h2v1h-2zM5 11h7v1h-7zM24 11h3v1h-3zM6 12h7v1h-7zM14 12h1v1h-1zM23 12h3v1h-3zM9 13h5v1h-5zM22 13h3v1h-3zM12 14h3v1h-3zM22 14h2v1h-2zM14 15h2v1h-2zM17 15h1v1h-1zM21 15h3v1h-3zM10 16h5v1h-5zM20 16h5v1h-5zM11 17h4v1h-4zM19 17h4v1h-4zM12 18h4v1h-4zM18 18h3v1h-3zM14 19h6v1h-6zM15 20h3v1h-3z"/>
+    <path fill="#d89541" d="M13 6h1v1h-1zM10 8h1v1h-1zM14 8h1v1h-1zM10 9h1v1h-1zM14 9h1v1h-1zM17 9h1v1h-1zM11 10h1v1h-1zM15 10h1v1h-1zM17 10h1v1h-1zM12 11h1v1h-1zM15 11h3v1h-3zM13 12h1v1h-1zM16 12h2v1h-2zM14 13h4v1h-4zM15 14h2v1h-2zM16 15h1v1h-1z"/>
+    <path fill="#ad6d3e" d="M13 7h1v1h-1zM16 8h1v1h-1zM9 9h1v1h-1z"/>
+    <path fill="#385e4d" d="M4 19h1v1h-1zM5 20h3v1h-3zM18 20h1v1h-1zM5 21h2v1h-2zM8 21h3v1h-3zM16 21h1v1h-1zM6 22h2v1h-2zM11 22h1v1h-1zM17 22h1v1h-1zM7 23h3v1h-3zM12 23h2v1h-2zM15 23h1v1h-1zM17 23h1v1h-1zM10 24h2v1h-2zM13 24h3v1h-3zM12 25h4v1h-4zM13 26h1v1h-1zM15 27h2v1h-2zM14 28h2v1h-2zM14 29h2v1h-2z"/>
+    <path fill="#9eaf75" d="M7 21h1v1h-1zM17 21h1v1h-1zM8 22h3v1h-3zM16 22h1v1h-1zM22 22h1v1h-1zM10 23h2v1h-2zM16 23h1v1h-1zM20 23h2v1h-2zM12 24h1v1h-1zM16 24h1v1h-1zM19 24h2v1h-2z"/>
+    <path fill="#678457" d="M22 21h3v1h-3zM19 22h3v1h-3zM23 22h1v1h-1zM18 23h2v1h-2zM22 23h1v1h-1zM17 24h2v1h-2zM21 24h1v1h-1zM16 25h4v1h-4zM15 26h2v1h-2z"/>
+  </symbol>
+</svg>
+
+  <svg class="defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="coracao" viewBox="0 0 13 12"><path fill="currentColor" d="M1 1h4v1h1v1h1V2h1V1h4v1h1v5h-1v1h-1v1h-1v1H9v1H8v1H5v-1H4v-1H3V9H2V8H1V7H0V2h1z"/></symbol>
+    <symbol id="estrela" viewBox="0 0 16 16"><path fill="currentColor" d="M7 0h2v4h1v2h2v1h4v2h-4v1h-2v2H9v4H7v-4H6v-2H4V9H0V7h4V6h2V4h1z"/></symbol>
+    <symbol id="som" viewBox="0 0 20 20"><path fill="currentColor" d="M2 7h4V5h2V3h2v14H8v-2H6v-2H2z"/><path class="som-ondas" fill="none" stroke="currentColor" stroke-width="2" d="M12 6q4 4 0 8m3-11q7 7 0 14"/><path class="som-x" fill="none" stroke="currentColor" stroke-width="2" d="m13 7 5 6m0-6-5 6"/></symbol>
+    <symbol id="play" viewBox="0 0 14 16"><path fill="currentColor" d="M1 1h3v2h3v2h3v2h3v2h-3v2H7v2H4v2H1z"/></symbol>
+    <symbol id="bandeira" viewBox="0 0 16 16"><path fill="currentColor" d="M2 1h2v1h9v2h-2v2h2v2H4v7H2z"/></symbol>
+    <symbol id="envelope" viewBox="0 0 26 20"><path fill="currentColor" d="M0 2h26v16H0z"/><path fill="#faedc9" d="M2 4h22v12H2z"/><path fill="currentColor" d="M2 4h4v2H2zm4 2h4v2H6zm4 2h6v2h-6zm6-2h4v2h-4zm4-2h4v2h-4z"/></symbol>
+    <symbol id="tranca" viewBox="0 0 13 16"><path fill="currentColor" fill-rule="evenodd" d="M3 1h7v2h2v4h1v8H0V7h1V3h2zm2 2v1H3v3h7V4H8V3zm0 7v3h3v-3z"/></symbol>
+  </svg>
+  <a class="skip" href="#jogo">Pular para o jogo</a>
+  <header class="topbar">
+    <div class="wrap top-inner">
+      <a class="brand" href="#inicio" aria-label="Flor e Pixel, início"><img src="assets/icone.svg" width="32" height="32" alt="">Flor &amp; Pixel</a>
+      <nav aria-label="Principal"><a href="#jogo">Jogo</a><a href="#capitulos">Capítulos</a></nav>
+      <button type="button" class="sound" id="sound" aria-pressed="false"><svg class="icon"><use href="#som"/></svg><span>Som desligado</span></button>
+    </div>
+  </header>
+  <main id="inicio" class="wrap">
+    <section class="intro" aria-labelledby="titulo">
+      <div>
+        <div class="eyebrow intro-label"><span class="diamond"></span> UM PRESENTE JOGÁVEL</div>
+        <h1 id="titulo">Jardim da Isabelly<span class="glints" aria-hidden="true"><svg><use href="#estrela"/></svg><svg><use href="#estrela"/></svg></span></h1>
+        <p>Uma pausa nos estudos, um punhado de flores e um joguinho só seu.</p>
+      </div>
+      <div class="postmark" aria-hidden="true">
+        <svg class="post-lines" viewBox="0 0 74 40"><g stroke="#9c8876" stroke-width="1.7" fill="none"><path d="M0 9c12-8 18 7 33 0s19 6 36 0M0 17c12-8 18 7 33 0s19 6 36 0M0 25c12-8 18 7 33 0s19 6 36 0"/></g></svg>
+        <div class="postage"><div class="stamp-box"><svg viewBox="0 0 32 32"><use href="#flor"/></svg><b>PARA VOCÊ</b></div></div>
+      </div>
+    </section>
+
+    <section class="console" id="jogo" aria-label="Janela do jogo">
+      <div class="windowbar">
+        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>jardim.exe</span><span class="window-rules" aria-hidden="true"></span>
+        <span class="player-tag">1 PLAYER</span>
+      </div>
+      <div class="console-body">
+        <div class="garden" id="garden">
+          <img class="scenery" src="assets/jardim.svg" alt="Um caminho entre girassóis e lírios leva às montanhas sob um sol dourado, em pixel art.">
+          <span class="world"><i></i> MUNDO 01</span>
+          <span class="lives" aria-label="Três corações"><svg><use href="#coracao"/></svg><svg><use href="#coracao"/></svg><svg><use href="#coracao"/></svg></span>
+          <img class="traveler" src="assets/viajante.svg" alt="" width="24" height="29">
+          <div class="flowers" id="flowers"></div>
+          <div class="location"><span class="map-pin" aria-hidden="true"></span> Campo das flores</div>
+        </div>
+        <div class="mission">
+          <div class="mission-top"><span class="eyebrow"><svg class="icon"><use href="#bandeira"/></svg> <span id="mission-kicker">MISSÃO 01</span></span><span id="mission-stat" class="mini-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <h2 id="mission-title">Caça às flores</h2>
+          <p id="mission-copy">Colha 3 girassóis e 2 lírios para montar o seu primeiro buquê.</p>
+          <div id="inventory" class="inventory" aria-label="Flores colhidas"></div>
+          <button type="button" id="start" class="action"><svg class="icon"><use href="#play"/></svg><span>Começar jogo</span></button>
+        </div>
+      </div>
+      <div class="statusbar"><span><i></i><span id="system-status" role="status">Pronto para jogar</span></span><span class="xp"><span class="xp-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b id="xp-label">0 XP</b></span></div>
+    </section>
+
+    <section id="capitulos" class="journey" aria-labelledby="journey-heading">
+      <div class="journey-heading"><h2 id="journey-heading">Sua jornada</h2><div class="dashed"></div><span id="progress" class="eyebrow">0/3 CONCLUÍDOS</span></div>
+      <div class="cards" id="cards"></div>
+    </section>
+    <footer><span><svg><use href="#coracao"/></svg> Feito com carinho para Isabelly</span><span>FLOR &amp; PIXEL <b>✦</b> VOL. 01</span></footer>
+  </main>
+
+  <dialog id="modal" aria-labelledby="dialog-title">
+    <div class="windowbar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="dialog-app">jardim.exe</span><span class="window-rules"></span><button class="close-modal" type="button" aria-label="Fechar janela">×</button></div>
+    <div class="modal-body"><span class="eyebrow" id="dialog-kicker"></span><h2 id="dialog-title"></h2><div id="dialog-content"></div></div>
+  </dialog>
+  <dialog id="welcome" aria-labelledby="welcome-title" aria-describedby="welcome-message">
+    <div class="windowbar" aria-hidden="true">
+      <span class="window-dots"><i></i><i></i><i></i></span>
+      <span>correio.exe</span><span class="window-rules"></span>
+      <svg class="mail-heart"><use href="#coracao"/></svg>
+    </div>
+    <div class="mail-paper">
+      <div class="mail-heading"><span>CORREIO DO JARDIM</span><span id="welcome-count"></span></div>
+      <div class="mail-art" aria-hidden="true">
+        <svg class="mail-stems" viewBox="0 0 72 48"><use href="#flor" x="0" y="1" width="42" height="42"/><use href="#lirio" x="27" y="11" width="37" height="37"/></svg>
+        <svg class="mail-envelope" viewBox="0 0 106 65" shape-rendering="crispEdges">
+          <path fill="#d4c2b4" d="M14 17h84v45H14z"/>
+          <path fill="#40333e" d="M9 11h86v46H9z"/>
+          <path fill="#ffedc8" d="M12 14h80v40H12z"/>
+          <path fill="#dcad93" d="M12 50h5v-4h6v-4h6v-4h6v-4h6v-4h6v3h-5v4h-6v4h-6v4h-6v4h-6v4h-6zm80 0h-5v-4h-6v-4h-6v-4h-6v-4h-6v-4h-6v3h5v4h6v4h6v4h6v4h6v4h6z"/>
+          <path fill="#8c675d" d="M12 14h8v4h6v4h6v4h7v4h7v4h12v-4h7v-4h7v-4h6v-4h6v-4h8v3h-6v4h-6v4h-6v4h-7v4h-7v4H44v-4h-7v-4h-7v-4h-6v-4h-6v-4h-6z"/>
+          <path fill="#edd1b2" d="M12 14h80v1H12z"/>
+          <path fill="#6f454a" d="M41 30h3v-3h7v2h3v-2h7v3h3v8h-3v3h-3v3h-3v3h-5v-3h-3v-3h-3v-3h-3z"/>
+          <path fill="#c86b76" d="M44 31h2v-2h4v2h5v-2h5v3h2v5h-3v3h-3v3h-3v2h-2v-3h-3v-3h-3v-3h-1z"/>
+          <path fill="#f3a9a0" d="M46 31h4v3h-4z"/>
+          <g fill="#c69a4c"><path d="M6 0h2v3h3v2H8v3H6V5H3V3h3zM98 7h2v3h3v2h-3v3h-2v-3h-3v-2h3z"/></g>
+        </svg>
+        <svg class="mail-postmark" viewBox="0 0 54 33"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1 8q7-6 14 0t14 0 14 0 10 0M1 15q7-6 14 0t14 0 14 0 10 0M1 22q7-6 14 0t14 0 14 0 10 0"/></g></svg>
+      </div>
+      <h2 id="welcome-title">Isabelly,</h2>
+      <p id="welcome-message"></p>
+      <p class="mail-sign">Com carinho, de quem gosta de você <span aria-hidden="true">♥</span></p>
+      <button class="action" id="welcome-enter" type="button" autofocus>Entrar no jardim <span aria-hidden="true">→</span></button>
+    </div>
+  </dialog>
+  <noscript>Ative o JavaScript no navegador para jogar.</noscript>
+</body>
+</html>

@@ -1,0 +1,233 @@
+.cap-game {
+  --cap-ink: #39283e;
+  --cap-paper: #fff7e8;
+  --cap-mono: var(--display, "Courier New", monospace);
+  color: var(--cap-ink);
+  text-align: left;
+  width: 100%;
+}
+.cap-game *, .cap-game *::before, .cap-game *::after { box-sizing: border-box; }
+.cap-game .cap-directions {
+  margin: 0 0 14px;
+  color: var(--cap-ink);
+  font: 500 .96rem/1.45 system-ui, sans-serif;
+}
+.cap-game button {
+  color: inherit;
+  border-radius: 0;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.cap-game button:focus-visible, .cap-game .cap-area:focus-visible {
+  outline: 3px solid #614b88;
+  outline-offset: 3px;
+}
+.cap-game .cap-art {
+  background-color: #f9ebce;
+  background-image: radial-gradient(#ab967355 .7px, transparent 1px);
+  background-size: 4px 4px;
+  padding: 10px 16px;
+  border: 2px solid var(--cap-ink);
+}
+.cap-game .cap-bouquet {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: clamp(170px, 27vh, 245px);
+  margin: 0 auto;
+  border: 1px solid #bba589;
+  background-color: #fff8e9;
+  box-shadow: 3px 3px #bba589;
+}
+.cap-game .cap-area { cursor: pointer; }
+.cap-game .cap-area:hover { stroke-width: 2.4; }
+.cap-game .cap-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 0 4px;
+}
+.cap-game .cap-eyebrow, .cap-game .cap-color-name, .cap-game .cap-state {
+  font: 700 .76rem/1.45 var(--cap-mono);
+}
+.cap-game .cap-eyebrow { letter-spacing: .08em; }
+.cap-game .cap-swatches { display: inline-flex; gap: 4px; }
+.cap-game .cap-swatch {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: 2px solid transparent;
+  background: transparent;
+  isolation: isolate;
+}
+.cap-game .cap-swatch::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 2px;
+  border: 1.5px solid var(--cap-ink);
+  background: var(--tinta);
+}
+.cap-game .cap-swatch[aria-pressed="true"] { border-color: var(--cap-ink); }
+.cap-game .cap-swatch span { display: none; }
+.cap-game .cap-swatch[aria-pressed="true"] span { display: inline; font: 800 1.1rem system-ui, sans-serif; }
+.cap-game .cap-areas { display: flex; flex-wrap: wrap; gap: 5px; margin: 7px 0; }
+.cap-game .cap-areas button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  min-height: 32px;
+  border: 1px solid #a28d83;
+  background: var(--cap-paper);
+  font: 600 .76rem/1.2 system-ui, sans-serif;
+}
+.cap-game .cap-areas i {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--cap-ink);
+  background: var(--marca, #fffbf4);
+}
+.cap-game .cap-painted { border-color: var(--cap-ink); }
+.cap-game .cap-bottom {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.cap-game .cap-state { margin: 0; }
+.cap-game .cap-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+.cap-game .cap-download { background: var(--cap-paper); border: 1px solid var(--cap-ink); font: 700 .76rem/1.3 var(--cap-mono); padding: 10px; }
+.cap-game .cap-download:hover { background: #f5ecd8; }
+.cap-game .cap-download[hidden] { display: none; }
+.cap-game .cap-continue {
+  background: #f1ba52;
+  border: 2px solid var(--cap-ink);
+  box-shadow: 3px 3px var(--cap-ink);
+  padding: 10px 13px;
+  font: 700 .82rem/1.3 var(--cap-mono);
+}
+.cap-game .cap-continue:hover:not(:disabled) { background: #f8ca71; }
+.cap-game .cap-continue:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px var(--cap-ink); }
+.cap-game .cap-continue:disabled { background: #e9e0cf; border-color: #a49a91; color: #665c60; box-shadow: 2px 2px #a49a91; cursor: default; }
+.cap-game .cap-continue[hidden] { display: none; }
+.cap-game .cap-memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.cap-game .cap-card {
+  position: relative;
+  display: grid;
+  min-height: 90px;
+  height: clamp(90px, 15vh, 132px);
+  padding: 4px;
+  background: #805e83;
+  border: 2px solid var(--cap-ink);
+  box-shadow: 3px 3px var(--cap-ink);
+}
+.cap-game .cap-card-back {
+  display: grid;
+  place-items: center;
+  position: relative;
+  border: 1px solid #e5c6a2;
+  background: repeating-linear-gradient(135deg, transparent 0 5px, #604b6a38 5px 7px);
+}
+.cap-game .cap-card-back small {
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  color: #fff1d2;
+  font: 700 .63rem/1 var(--cap-mono);
+}
+.cap-game .cap-card-back svg { width: 48px; height: 40px; }
+.cap-game .cap-card-front {
+  display: none;
+  gap: 1px;
+  place-items: center;
+  align-content: center;
+  border: 1px dashed #8f8071;
+}
+.cap-game .cap-card-front svg,
+.cap-game .cap-card-front img { width: min(72%, 78px); height: clamp(43px, 8vh, 66px); object-fit: contain; }
+.cap-game .cap-card-front b { font: 700 clamp(.62rem, 2.4vw, .85rem)/1.3 var(--cap-mono); }
+.cap-game .cap-card.cap-up { background: var(--face); }
+.cap-game .cap-up .cap-card-front { display: grid; }
+.cap-game .cap-up .cap-card-back { display: none; }
+.cap-game .cap-paired::after {
+  content: "✓";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 1px 3px;
+  background: #466647;
+  color: #fff;
+  font: 700 .66rem/1.2 system-ui, sans-serif;
+}
+.cap-game .cap-paired { box-shadow: 2px 2px #626451; cursor: default; }
+@media (hover: hover) {
+  .cap-game .cap-card:not(.cap-up):hover { background-color: #927293; transform: translateY(-1px); }
+  .cap-game .cap-areas button:hover { border-color: var(--cap-ink); background: #f5ecd8; }
+}
+@media (max-width: 760px), (pointer: coarse) {
+  .cap-game .cap-swatch,
+  .cap-game .cap-areas button,
+  .cap-game .cap-download,
+  .cap-game .cap-continue {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .cap-game .cap-area { touch-action: manipulation; }
+}
+
+@media (max-width: 520px) {
+  .cap-game .cap-art { padding: 7px 7px 9px; }
+  .cap-game .cap-bouquet { height: auto; width: 100%; }
+  .cap-game .cap-tools {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .cap-game .cap-color-name { grid-column: 2; grid-row: 1; }
+  .cap-game .cap-swatches {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(44px, 1fr));
+    gap: 3px;
+  }
+  .cap-game .cap-swatch { width: 100%; height: 44px; }
+  .cap-game .cap-areas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .cap-game .cap-areas button { justify-content: center; font-size: .84rem; }
+  .cap-game .cap-bottom { gap: 8px; }
+  .cap-game .cap-actions { width: 100%; }
+  .cap-game .cap-actions button { flex: 1 1 110px; }
+  .cap-game .cap-memory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .cap-game .cap-card-front b { font-size: .7rem; overflow-wrap: anywhere; }
+}
+
+@media (max-width: 359px) {
+  .cap-game .cap-swatches { grid-template-columns: repeat(3, minmax(44px, 1fr)); }
+  .cap-game .cap-memory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 960px) {
+  .cap-game .cap-bouquet { height: 125px; width: auto; }
+  .cap-game .cap-directions { margin-bottom: 8px; }
+  .cap-game .cap-memory-grid { gap: 6px; }
+  .cap-game .cap-card { min-height: 68px; height: 19vh; }
+  .cap-game .cap-card-front svg,
+  .cap-game .cap-card-front img { height: 34px; }
+}
